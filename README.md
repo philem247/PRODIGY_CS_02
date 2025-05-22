@@ -11,4 +11,4 @@ A simple Flask-based web tool for image encryption and decryption using pixel ma
 
 ```bash
 pip install -r requirements.txt
-python app.py
+python image_cipher.py
