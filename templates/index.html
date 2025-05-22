@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Encryption Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Image Encryption & Decryption Tool</h2>
+    <form method="post" enctype="multipart/form-data">
+        <label>Select Image:</label>
+        <input type="file" name="image" required>
+
+        <label>Action:</label>
+        <select name="action">
+            <option value="encrypt">Encrypt</option>
+            <option value="decrypt">Decrypt</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if encrypted %}
+        <h3>Encrypted Image:</h3>
+        <img src="{{ url_for('serve_file', filename=encrypted) }}" width="300">
+    {% endif %}
+    {% if decrypted %}
+        <h3>Decrypted Image:</h3>
+        <img src="{{ url_for('serve_file', filename=decrypted) }}" width="300">
+    {% endif %}
+</div>
+</body>
+</html>
